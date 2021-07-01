@@ -1,9 +1,9 @@
 {
-    "name": "foostart/package-post",
-    "description": "Manage post",
+    "name": "foostart/package-course",
+    "description": "Manage course",
     "keywords": [
         "foostart",
-        "laravel 5 package post"
+        "laravel 5 package course"
     ],
     "authors": [
         {
@@ -19,7 +19,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Foostart\\Post\\": "/"
+            "Foostart\\Course\\": "/"
         }
     },
     "minimum-stability": "dev"

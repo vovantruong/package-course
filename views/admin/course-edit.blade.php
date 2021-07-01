@@ -1,7 +1,7 @@
 <!--
 | @TITLE
-| Update existing post
-| Add new post
+| Update existing course
+| Add new course
 |
 |-------------------------------------------------------------------------------
 | @REQUIRED
@@ -65,7 +65,7 @@
                     <div class="row">
                         <div class="col-md-12 col-xs-12">
 
-                            @include('package-post::admin.post-form')
+                            @include('package-course::admin.course-form')
 
                         </div>
                     </div>
@@ -74,7 +74,7 @@
         </div>
 
         <div class='col-md-3'>
-            @include('package-post::admin.post-search')
+            @include('package-course::admin.course-search')
         </div>
 
     </div>

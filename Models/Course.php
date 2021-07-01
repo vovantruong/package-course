@@ -1,10 +1,10 @@
-<?php namespace Foostart\Post\Models;
+<?php namespace Foostart\Course\Models;
 
 use Foostart\Category\Library\Models\FooModel;
 use Illuminate\Database\Eloquent\Model;
 use Foostart\Comment\Models\Comment;
 
-class Post extends FooModel {
+class Course extends FooModel {
 
     /**
      * @table categories
@@ -22,16 +22,16 @@ class Post extends FooModel {
     public function setConfigs() {
 
         //table name
-        $this->table = 'posts';
+        $this->table = 'courses';
 
         //list of field in table
         $this->fillable = array_merge($this->fillable, [
-            'post_name',
-            'post_slug',
-            'post_overview',
-            'post_description',
-            'post_image',
-            'post_files',
+            'course_name',
+            'course_slug',
+            'course_overview',
+            'course_description',
+            'course_image',
+            'course_files',
             //Relation
             'category_id',
             'slideshow_id',
@@ -39,27 +39,27 @@ class Post extends FooModel {
 
         //list of fields for inserting
         $this->fields = array_merge($this->fields, [
-            'post_name' => [
-                'name' => 'post_name',
+            'course_name' => [
+                'name' => 'course_name',
                 'type' => 'Text',
             ],
-            'post_slug' => [
-                'name' => 'post_slug',
+            'course_slug' => [
+                'name' => 'course_slug',
                 'type' => 'Text',
             ],
-            'post_overview' => [
-                'name' => 'post_overview',
+            'course_overview' => [
+                'name' => 'course_overview',
                 'type' => 'Text',
             ],
-            'post_description' => [
-                'name' => 'post_description',
+            'course_description' => [
+                'name' => 'course_description',
                 'type' => 'Text',
             ],
-            'post_image' => [
-                'name' => 'post_image',
+            'course_image' => [
+                'name' => 'course_image',
                 'type' => 'Text',
             ],
-            'post_files' => [
+            'course_files' => [
                 'name' => 'files',
                 'type' => 'Json',
             ],
@@ -76,12 +76,12 @@ class Post extends FooModel {
 
         //check valid fields for inserting
         $this->valid_insert_fields = array_merge($this->valid_insert_fields, [
-            'post_name',
-            'post_slug',
-            'post_overview',
-            'post_description',
-            'post_image',
-            'post_files',
+            'course_name',
+            'course_slug',
+            'course_overview',
+            'course_description',
+            'course_image',
+            'course_files',
             //Relation
             'category_id',
             'slideshow_id',
@@ -89,7 +89,7 @@ class Post extends FooModel {
 
         //check valid fields for ordering
         $this->valid_ordering_fields = [
-            'post_name',
+            'course_name',
             'updated_at',
             $this->field_status,
         ];
@@ -100,13 +100,13 @@ class Post extends FooModel {
             'category',
             '_id',
             'limit',
-            'post_id!',
+            'course_id!',
             'category_id',
             'user_id',
         ];
 
         //primary key
-        $this->primaryKey = 'post_id';
+        $this->primaryKey = 'course_id';
 
     }
 
@@ -140,9 +140,9 @@ class Post extends FooModel {
     }
 
     /**
-     * Get a post by {id}
+     * Get a course by {id}
      * @param ARRAY $params list of parameters
-     * @return OBJECT post
+     * @return OBJECT course
      */
     public function selectItem($params = array(), $key = NULL) {
 
@@ -169,18 +169,18 @@ class Post extends FooModel {
     }
 
 
-    public function getComments($post_id) {
+    public function getComments($course_id) {
 
-        // Get post
+        // Get course
         $params = array(
-            'id' => $post_id,
+            'id' => $course_id,
         );
-        $post = $this->selectItem($params);
+        $course = $this->selectItem($params);
 
         // Get comment by context
         $params = array(
-            'context_name' => 'post',
-            'context_id' => $post_id,
+            'context_name' => 'course',
+            'context_id' => $course_id,
             'by_status' => true,
         );
         $obj_comment = new Comment();
@@ -188,9 +188,9 @@ class Post extends FooModel {
         $comments = $obj_comment->selectItems($params);
 
         $users_comments = $obj_comment->mapCommentArray($comments);
-        $post->cache_comments = json_encode($users_comments);
-        $post->cache_time = time();
-        $post->save();
+        $course->cache_comments = json_encode($users_comments);
+        $course->cache_time = time();
+        $course->save();
 
         return $users_comments;
     }
@@ -243,7 +243,7 @@ class Post extends FooModel {
                             break;
                         case '_id':
                             if (!empty($value)) {
-                                $elo = $elo->where($this->table . '.post_id', '!=', $value);
+                                $elo = $elo->where($this->table . '.course_id', '!=', $value);
                             }
                             break;
                         case 'status':
@@ -254,9 +254,9 @@ class Post extends FooModel {
                         case 'keyword':
                             if (!empty($value)) {
                                 $elo = $elo->where(function($elo) use ($value) {
-                                    $elo->where($this->table . '.post_name', 'LIKE', "%{$value}%")
-                                    ->orWhere($this->table . '.post_description','LIKE', "%{$value}%")
-                                    ->orWhere($this->table . '.post_overview','LIKE', "%{$value}%");
+                                    $elo->where($this->table . '.course_name', 'LIKE', "%{$value}%")
+                                    ->orWhere($this->table . '.course_description','LIKE', "%{$value}%")
+                                    ->orWhere($this->table . '.course_overview','LIKE', "%{$value}%");
                                 });
                             }
                             break;
@@ -282,7 +282,7 @@ class Post extends FooModel {
     public function createSelect($elo) {
 
         $elo = $elo->select($this->table . '.*',
-                            $this->table . '.post_id as id'
+                            $this->table . '.course_id as id'
                 );
 
         return $elo;
@@ -312,22 +312,22 @@ class Post extends FooModel {
         }
         $field_status = $this->field_status;
 
-        //get post item by conditions
+        //get course item by conditions
         $_params = [
             'id' => $id,
         ];
-        $post = $this->selectItem($_params);
+        $course = $this->selectItem($_params);
 
-        if (!empty($post)) {
+        if (!empty($course)) {
             $dataFields = $this->getDataFields($params, $this->fields);
 
             foreach ($dataFields as $key => $value) {
-                $post->$key = $value;
+                $course->$key = $value;
             }
 
-            $post->save();
+            $course->save();
 
-            return $post;
+            return $course;
         } else {
             return NULL;
         }
@@ -337,7 +337,7 @@ class Post extends FooModel {
     /**
      *
      * @param ARRAY $params list of parameters
-     * @return OBJECT post
+     * @return OBJECT course
      */
     public function insertItem($params = []) {
 

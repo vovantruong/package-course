@@ -1,4 +1,4 @@
-<?php namespace Foostart\Post\Controllers\Front;
+<?php namespace Foostart\Course\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -8,7 +8,7 @@ use URL,
     Redirect;
 use Foostart\Sample\Models\Samples;
 
-class PostFrontController extends Controller
+class CourseFrontController extends Controller
 {
     public $data = array();
     public function __construct() {

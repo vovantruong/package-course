@@ -1,8 +1,8 @@
-<?php namespace Foostart\Post\Controllers\Admin;
+<?php namespace Foostart\Course\Controllers\Admin;
 
 /*
 |-----------------------------------------------------------------------
-| PostAdminController
+| CourseAdminController
 |-----------------------------------------------------------------------
 | @author: Kang
 | @website: http://foostart.com
@@ -16,13 +16,13 @@ use URL, Route, Redirect;
 use Illuminate\Support\Facades\App;
 
 use Foostart\Category\Library\Controllers\FooController;
-use Foostart\Post\Models\Post;
+use Foostart\Course\Models\Course;
 use Foostart\Category\Models\Category;
 use Foostart\Slideshow\Models\Slideshow;
-use Foostart\Post\Validators\PostValidator;
+use Foostart\Course\Validators\CourseValidator;
 
 
-class PostAdminController extends FooController {
+class CourseAdminController extends FooController {
 
     public $obj_item = NULL;
     public $obj_category = NULL;
@@ -36,23 +36,23 @@ class PostAdminController extends FooController {
         parent::__construct();
 
         //models
-        $this->obj_item = new Post(array('perPage' => 10));
+        $this->obj_item = new Course(array('perPage' => 10));
         $this->obj_category = new Category();
         $this->obj_slideshow = new Slideshow();
 
         //validators
-        $this->obj_validator = new PostValidator();
+        $this->obj_validator = new CourseValidator();
 
         //set language files
-        $this->plang_admin = 'post-admin';
-        $this->plang_front = 'post-front';
+        $this->plang_admin = 'course-admin';
+        $this->plang_front = 'course-front';
 
         //package name
-        $this->package_name = 'package-post';
-        $this->package_base_name = 'post';
+        $this->package_name = 'package-course';
+        $this->package_base_name = 'course';
 
         //root routers
-        $this->root_router = 'posts';
+        $this->root_router = 'courses';
 
         //page views
         $this->page_views = [
@@ -68,7 +68,7 @@ class PostAdminController extends FooController {
         $this->data_view['status'] = $this->obj_item->getPluckStatus();
 
         //set category context
-        $this->category_ref_name = 'admin/posts';
+        $this->category_ref_name = 'admin/courses';
 
         //get list of categories
         $this->context = $this->obj_item->getContext($this->category_ref_name);
@@ -87,7 +87,7 @@ class PostAdminController extends FooController {
          * Breadcrumb
          */
         $this->breadcrumb_1['label'] = 'Admin';
-        $this->breadcrumb_2['label'] = 'Posts';
+        $this->breadcrumb_2['label'] = 'Courses';
 
     }
 
@@ -118,7 +118,7 @@ class PostAdminController extends FooController {
 
         } else if (empty($params['user_id']) || ($params['user_id'] != $user['user_id'])) {
 
-            return redirect()->route('posts.list', ['user_id' => $user['user_id']]);
+            return redirect()->route('courses.list', ['user_id' => $user['user_id']]);
 
         }
         
@@ -196,11 +196,11 @@ class PostAdminController extends FooController {
     }
 
     /**
-     * Processing data from POST method: add new item, edit existing item
+     * Processing data from course method: add new item, edit existing item
      * @return view edit page
      * @date 27/12/2017
      */
-    public function post(Request $request) {
+    public function course(Request $request) {
         
         $item = NULL;
 
@@ -313,8 +313,8 @@ class PostAdminController extends FooController {
 
         $is_valid_request = $this->isValidRequest($request);
         // display view
-        $config_path = realpath(base_path('config/package-post.php'));
-        $package_path = realpath(base_path('vendor/foostart/package-post'));
+        $config_path = realpath(base_path('config/package-course.php'));
+        $package_path = realpath(base_path('vendor/foostart/package-course'));
 
         $config_bakup = $package_path.'/storage/backup/config';
         if (!file_exists($config_bakup)) {
@@ -330,10 +330,10 @@ class PostAdminController extends FooController {
             $content = file_get_contents($config_path);
         }
 
-        if ($request->isMethod('post') && $is_valid_request) {
+        if ($request->isMethod('course') && $is_valid_request) {
 
             //create backup of current config
-            file_put_contents($config_bakup.'/package-post-'.date('YmdHis',time()).'.php', $content);
+            file_put_contents($config_bakup.'/package-course-'.date('YmdHis',time()).'.php', $content);
 
             //update new config
             $content = $request->get('content');
@@ -371,13 +371,13 @@ class PostAdminController extends FooController {
 
         $is_valid_request = $this->isValidRequest($request);
         // display view
-        $langs = config('package-post.langs');
+        $langs = config('package-course.langs');
         $lang_paths = [];
-        $package_path = realpath(base_path('vendor/foostart/package-post'));
+        $package_path = realpath(base_path('vendor/foostart/package-course'));
 
         if (!empty($langs) && is_array($langs)) {
             foreach ($langs as $key => $value) {
-                $lang_paths[$key] = realpath(base_path('resources/lang/'.$key.'/post-admin.php'));
+                $lang_paths[$key] = realpath(base_path('resources/lang/'.$key.'/course-admin.php'));
 
                 $key_backup = $package_path.'/storage/backup/lang/'.$key;
 
@@ -409,14 +409,14 @@ class PostAdminController extends FooController {
             }
         }
 
-        if ($request->isMethod('post') && $is_valid_request) {
+        if ($request->isMethod('course') && $is_valid_request) {
 
             //create backup of current config
             foreach ($lang_paths as $key => $value) {
                 $content = file_get_contents($value);
 
-                //format file name post-admin-YmdHis.php
-                file_put_contents($lang_bakup.'/'.$key.'/post-admin-'.date('YmdHis',time()).'.php', $content);
+                //format file name course-admin-YmdHis.php
+                file_put_contents($lang_bakup.'/'.$key.'/course-admin-'.date('YmdHis',time()).'.php', $content);
             }
 
 

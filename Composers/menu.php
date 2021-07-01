@@ -11,17 +11,17 @@ use Foostart\Category\Helpers\SortTable;
 |   $sidebar_items
 |   $sorting
 |   $order_by
-|   $plang_admin = 'post-admin'
-|   $plang_front = 'post-front'
+|   $plang_admin = 'course-admin'
+|   $plang_front = 'course-front'
 */
 View::composer([
-                'package-post::admin.post-edit',
-                'package-post::admin.post-form',
-                'package-post::admin.post-items',
-                'package-post::admin.post-item',
-                'package-post::admin.post-search',
-                'package-post::admin.post-config',
-                'package-post::admin.post-lang',
+                'package-course::admin.course-edit',
+                'package-course::admin.course-form',
+                'package-course::admin.course-items',
+                'package-course::admin.course-item',
+                'package-course::admin.course-search',
+                'package-course::admin.course-config',
+                'package-course::admin.course-lang',
     ], function ($view) {
 
         //Order by params
@@ -32,34 +32,34 @@ View::composer([
          * $plang-front
          */
 
-        $plang_admin = 'post-admin';
-        $plang_front = 'post-front';
+        $plang_admin = 'course-admin';
+        $plang_front = 'course-front';
 
         $fooCategory = new FooCategory();
-        $key = $fooCategory->getContextKeyByRef('admin/posts');
+        $key = $fooCategory->getContextKeyByRef('admin/courses');
 
         /**
          * $sidebar_items
          */
         $sidebar_items = [
-            trans('post-admin.sidebar.add') => [
-                'url' => URL::route('posts.edit', []),
+            trans('course-admin.sidebar.add') => [
+                'url' => URL::route('courses.edit', []),
                 'icon' => '<i class="fa fa-pencil-square-o" aria-hidden="true"></i>'
             ],
-            trans('post-admin.sidebar.list') => [
-                "url" => URL::route('posts.list', []),
+            trans('course-admin.sidebar.list') => [
+                "url" => URL::route('courses.list', []),
                 'icon' => '<i class="fa fa-list-ul" aria-hidden="true"></i>'
             ],
-            trans('post-admin.sidebar.category') => [
+            trans('course-admin.sidebar.category') => [
                 'url'  => URL::route('categories.list',['_key='.$key]),
                 'icon' => '<i class="fa fa-sitemap" aria-hidden="true"></i>'
             ],
-            trans('post-admin.sidebar.config') => [
-                "url" => URL::route('posts.config', []),
+            trans('course-admin.sidebar.config') => [
+                "url" => URL::route('courses.config', []),
                 'icon' => '<i class="fa fa-braille" aria-hidden="true"></i>'
             ],
-            trans('post-admin.sidebar.lang') => [
-                "url" => URL::route('posts.lang', []),
+            trans('course-admin.sidebar.lang') => [
+                "url" => URL::route('courses.lang', []),
                 'icon' => '<i class="fa fa-language" aria-hidden="true"></i>'
             ],
         ];
@@ -71,7 +71,7 @@ View::composer([
         $orders = [
             '' => trans($plang_admin.'.form.no-selected'),
             'id' => trans($plang_admin.'.fields.id'),
-            'post_name' => trans($plang_admin.'.fields.name'),
+            'course_name' => trans($plang_admin.'.fields.name'),
             'status' => trans($plang_admin.'.columns.status'),
             'updated_at' => trans($plang_admin.'.fields.updated_at'),
         ];

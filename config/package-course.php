@@ -3,15 +3,15 @@ return [
 
     //Number of worlds
     'length' => [
-        'post_name' => [
+        'course_name' => [
             'min' => 10,
             'max' => 255,
         ],
-        'post_overview' => [
+        'course_overview' => [
             'min' => 10,
             'max' => 255,
         ],
-        'post_description' => [
+        'course_description' => [
             'min' => 255,
             'max' => 0,//unlimit
         ],
@@ -27,7 +27,7 @@ return [
     |
     */
     'env' => 0,
-    'load_from' => 'package-post::',
+    'load_from' => 'package-course::',
 
     /*
     |-----------------------------------------------------------------------

@@ -5,9 +5,9 @@ use Illuminate\Session\TokenMismatchException;
 /**
  * FRONT
  */
-Route::get('post', [
-    'as' => 'post',
-    'uses' => 'Foostart\Post\Controllers\Front\PostFrontController@index'
+Route::get('course', [
+    'as' => 'course',
+    'uses' => 'Foostart\Course\Controllers\Front\CourseFrontController@index'
 ]);
 
 
@@ -17,17 +17,17 @@ Route::get('post', [
 Route::group(['middleware' => ['web']], function () {
 
     Route::group(['middleware' => ['admin_logged', 'can_see', 'in_context'],
-                  'namespace' => 'Foostart\Post\Controllers\Admin',
+                  'namespace' => 'Foostart\Course\Controllers\Admin',
         ], function () {
 
         /*
           |-----------------------------------------------------------------------
-          | Manage post
+          | Manage course
           |-----------------------------------------------------------------------
-          | 1. List of posts
-          | 2. Edit post
-          | 3. Delete post
-          | 4. Add new post
+          | 1. List of courses
+          | 2. Edit course
+          | 3. Delete course
+          | 4. Add new course
           | 5. Manage configurations
           | 6. Manage languages
           |
@@ -36,75 +36,75 @@ Route::group(['middleware' => ['web']], function () {
         /**
          * list
          */
-        Route::get('admin/posts', [
-            'as' => 'posts.list',
-            'uses' => 'PostAdminController@index'
+        Route::get('admin/courses', [
+            'as' => 'courses.list',
+            'uses' => 'courseAdminController@index'
         ]);
 
         /**
          * edit-add
          */
-        Route::get('admin/posts/edit', [
-            'as' => 'posts.edit',
-            'uses' => 'PostAdminController@edit'
+        Route::get('admin/courses/edit', [
+            'as' => 'courses.edit',
+            'uses' => 'courseAdminController@edit'
         ]);
 
         /**
          * copy
          */
-        Route::get('admin/posts/copy', [
-            'as' => 'posts.copy',
-            'uses' => 'PostAdminController@copy'
+        Route::get('admin/courses/copy', [
+            'as' => 'courses.copy',
+            'uses' => 'courseAdminController@copy'
         ]);
 
         /**
-         * post
+         * course
          */
-        Route::post('admin/posts/edit', [
-            'as' => 'posts.post',
-            'uses' => 'PostAdminController@post'
+        Route::post('admin/courses/edit', [
+            'as' => 'courses.course',
+            'uses' => 'CourseAdminController@course'
         ]);
 
         /**
          * delete
          */
-        Route::get('admin/posts/delete', [
-            'as' => 'posts.delete',
-            'uses' => 'PostAdminController@delete'
+        Route::get('admin/courses/delete', [
+            'as' => 'courses.delete',
+            'uses' => 'CourseAdminController@delete'
         ]);
 
         /**
          * trash
          */
-         Route::get('admin/posts/trash', [
-            'as' => 'posts.trash',
-            'uses' => 'PostAdminController@trash'
+         Route::get('admin/courses/trash', [
+            'as' => 'courses.trash',
+            'uses' => 'CourseAdminController@trash'
         ]);
 
         /**
          * configs
         */
-        Route::get('admin/posts/config', [
-            'as' => 'posts.config',
-            'uses' => 'PostAdminController@config'
+        Route::get('admin/courses/config', [
+            'as' => 'courses.config',
+            'uses' => 'CourseAdminController@config'
         ]);
 
-        Route::post('admin/posts/config', [
-            'as' => 'posts.config',
-            'uses' => 'PostAdminController@config'
+        Route::post('admin/courses/config', [
+            'as' => 'courses.config',
+            'uses' => 'CourseAdminController@config'
         ]);
 
         /**
          * language
         */
-        Route::get('admin/posts/lang', [
-            'as' => 'posts.lang',
-            'uses' => 'PostAdminController@lang'
+        Route::get('admin/courses/lang', [
+            'as' => 'courses.lang',
+            'uses' => 'CourseAdminController@lang'
         ]);
 
-        Route::post('admin/posts/lang', [
-            'as' => 'posts.lang',
-            'uses' => 'PostAdminController@lang'
+        Route::post('admin/courses/lang', [
+            'as' => 'courses.lang',
+            'uses' => 'CourseAdminController@lang'
         ]);
 
     });

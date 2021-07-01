@@ -10,7 +10,7 @@ return [
     |
     */
     'menus' => [
-        'top-menu' => 'Post'
+        'top-menu' => 'Course'
     ],
 
 
@@ -47,7 +47,7 @@ return [
     */
     'columns' => [
         'order' => '#',
-        'name' => 'Post name',
+        'name' => 'Course name',
         'operations' => 'Operations',
         'updated_at' => 'Updated at',
         'filename' => 'File name',
@@ -63,11 +63,11 @@ return [
     |
     */
     'pages' => [
-        'title-list' => 'List of posts',
+        'title-list' => 'List of courses',
         'title-list-search' => 'Search results',
-        'title-edit' => 'Edit post',
-        'title-add' => 'Add new post',
-        'title-delete' => 'Delete post',
+        'title-edit' => 'Edit course',
+        'title-add' => 'Add new course',
+        'title-delete' => 'Delete course',
         'title-config' => 'Current configurations',
         'title-lang' => 'Manage list of languages',
     ],
@@ -139,8 +139,8 @@ return [
     |
     */
     'descriptions' => [
-        'form' => 'Post form',
-        'update' => 'Update post',
+        'form' => 'Course form',
+        'update' => 'Update course',
         'name' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
         'slug' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
         'category' => 'Click <a href=":href">here</a> to manage list of categories by token.',
@@ -188,10 +188,10 @@ return [
     |
     */
     'fields' => [
-        'id' => 'Post ID',
-        'name' => 'Post name',
-        'description' => 'Post Description',
-        'overview' => 'Post Overview',
+        'id' => 'Course ID',
+        'name' => 'Course name',
+        'description' => 'Course Description',
+        'overview' => 'Course Overview',
         'slug' => 'Slug',
         'updated_at' => 'Updated at'
     ],
@@ -209,15 +209,15 @@ return [
     |
     */
     'labels' => [
-        'name' => 'Post name',
-        'slug' => 'Post slug',
-        'overview' => 'Post overview',
-        'description' => 'Post description',
-        'image' => 'Post image',
-        'files' => 'Post files',
+        'name' => 'Course name',
+        'slug' => 'Course slug',
+        'overview' => 'Course overview',
+        'description' => 'Course description',
+        'image' => 'Course image',
+        'files' => 'Course files',
         'category' => 'Category name',
         'slideshow' => 'Slideshow name',
-        'title-search' => 'Search post',
+        'title-search' => 'Search Course',
         'title-backup' => 'Backups',
         'config' => 'Configurations',
         'keyword' => 'Keyword',
@@ -271,8 +271,8 @@ return [
     |
     */
     'headings' => [
-        'form-search' => 'Search posts',
-        'list' => 'List of posts',
+        'form-search' => 'Search courses',
+        'list' => 'List of courses',
         'search' => 'Search results',
     ],
 

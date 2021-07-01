@@ -1,14 +1,14 @@
 <!------------------------------------------------------------------------------
-| List of elements in post form
+| List of elements in course form
 |------------------------------------------------------------------------------->
 
-{!! Form::open(['route'=>['posts.post', 'id' => @$item->id],  'files'=>true, 'method' => 'post'])  !!}
+{!! Form::open(['route'=>['courses.course', 'id' => @$item->id],  'files'=>true, 'method' => 'course'])  !!}
 
     <!--BUTTONS-->
     <div class='btn-form'>
         <!-- DELETE BUTTON -->
         @if($item)
-            <a href="{!! URL::route('posts.delete',['id' => @$item->id, '_token' => csrf_token()]) !!}"
+            <a href="{!! URL::route('courses.delete',['id' => @$item->id, '_token' => csrf_token()]) !!}"
             class="btn btn-danger pull-right margin-left-5 delete">
                 {!! trans($plang_admin.'.buttons.delete') !!}
             </a>
@@ -52,28 +52,28 @@
         <!--BASIC-->
         <div id="menu_1" class="tab-pane fade in active">
 
-            <!--POST NAME-->
+            <!--course NAME-->
             @include('package-category::admin.partials.input_text', [
-                'name' => 'post_name',
-                'id' => 'post_name',
+                'name' => 'course_name',
+                'id' => 'course_name',
                 'label' => trans($plang_admin.'.labels.name'),
-                'value' => @$item->post_name,
+                'value' => @$item->course_name,
                 'description' => trans($plang_admin.'.descriptions.name'),
                 'errors' => $errors,
             ])
-            <!--/POST NAME-->
+            <!--/course NAME-->
 
-            <!--POST SLUG-->
+            <!--course SLUG-->
             @include('package-category::admin.partials.input_slug', [
-                'name' => 'post_slug',
-                'id' => 'post_slug',
-                'ref' => 'post_name',
+                'name' => 'course_slug',
+                'id' => 'course_slug',
+                'ref' => 'course_name',
                 'label' => trans($plang_admin.'.labels.slug'),
-                'value' => @$item->post_slug,
+                'value' => @$item->course_slug,
                 'description' => trans($plang_admin.'.descriptions.slug'),
                 'errors' => $errors,
             ])
-            <!--/POST NAME-->
+            <!--/course NAME-->
 
             <div class="row">
 
@@ -122,56 +122,56 @@
 
             </div>
 
-            <!--POST DESCRIPTION-->
+            <!--course DESCRIPTION-->
             @include('package-category::admin.partials.textarea', [
-                'name' => 'post_description',
+                'name' => 'course_description',
                 'label' => trans($plang_admin.'.labels.description'),
-                'value' => @$item->post_description,
+                'value' => @$item->course_description,
                 'description' => trans($plang_admin.'.descriptions.description'),
                 'rows' => 70,
                 'tinymce' => true,
                 'errors' => $errors,
             ])
-            <!--/POST DESCRIPTION-->
+            <!--/course DESCRIPTION-->
 
         </div>
 
         <!--ADVANCED-->
         <div id="menu_2" class="tab-pane fade">
-            <!--POST OVERVIEW-->
+            <!--course OVERVIEW-->
             @include('package-category::admin.partials.textarea', [
-            'name' => 'post_overview',
+            'name' => 'course_overview',
             'label' => trans($plang_admin.'.labels.overview'),
-            'value' => @$item->post_overview,
+            'value' => @$item->course_overview,
             'description' => trans($plang_admin.'.descriptions.overview'),
             'tinymce' => false,
             'errors' => $errors,
             ])
-            <!--/POST OVERVIEW-->
+            <!--/course OVERVIEW-->
 
         </div>
 
         <!--OTHER-->
         <div id="menu_3" class="tab-pane fade">
-            <!--POST IMAGE-->
+            <!--course IMAGE-->
             @include('package-category::admin.partials.input_image', [
-            'name' => 'post_image',
+            'name' => 'course_image',
             'label' => trans($plang_admin.'.labels.image'),
-            'value' => @$item->post_image,
+            'value' => @$item->course_image,
             'description' => trans($plang_admin.'.descriptions.image'),
             'errors' => $errors,
             ])
-            <!--/POST IMAGE-->
+            <!--/course IMAGE-->
 
-            <!--POST FILES-->
+            <!--course FILES-->
             @include('package-category::admin.partials.input_files', [
                 'name' => 'files',
                 'label' => trans($plang_admin.'.labels.files'),
-                'value' => @$item->post_files,
+                'value' => @$item->course_files,
                 'description' => trans($plang_admin.'.descriptions.files'),
                 'errors' => $errors,
             ])
-            <!--/POST FILES-->
+            <!--/course FILES-->
         </div>
 
     </div>
@@ -186,5 +186,5 @@
 
 {!! Form::close() !!}
 <!------------------------------------------------------------------------------
-| End list of elements in post form
+| End list of elements in course form
 |------------------------------------------------------------------------------>

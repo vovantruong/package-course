@@ -35,7 +35,7 @@
             </th>
 
             <!-- NAME -->
-            <?php $name = 'post_name' ?>
+            <?php $name = 'course_name' ?>
 
             <th class="hidden-xs" style='width:{{ $withs['name'] }}'>{!! trans($plang_admin.'.columns.name') !!}
                 <a href='{!! $sorting["url"][$name] !!}' class='tb-id' data-order='asc'>
@@ -117,7 +117,7 @@
                 </td>
 
                 <!--NAME-->
-                <td> {!! $item->post_name !!} </td>
+                <td> {!! $item->course_name !!} </td>
                 
                 <!--STATUS-->
                 <td style="text-align: center;">
@@ -137,7 +137,7 @@
                     <!--comment-->
                     @if(Route::has('comments.by_context'))
                     <a href="{!! URL::route('comments.by_context', [   'id' => $item->id,
-                                                                       'context' => 'post',
+                                                                       'context' => 'course',
                                                                        '_token' => csrf_token()
                                                             ])
                             !!}">
@@ -146,7 +146,7 @@
                     @endif
 
                     <!--edit-->
-                    <a href="{!! URL::route('posts.edit', [   'id' => $item->id,
+                    <a href="{!! URL::route('courses.edit', [   'id' => $item->id,
                                                                 '_token' => csrf_token()
                                                             ])
                             !!}">
@@ -155,7 +155,7 @@
 
 
                     <!--copy-->
-                    <a href="{!! URL::route('posts.copy',[    'cid' => $item->id,
+                    <a href="{!! URL::route('courses.copy',[    'cid' => $item->id,
                                                                 '_token' => csrf_token(),
                                                             ])
                              !!}"
@@ -164,7 +164,7 @@
                     </a>&nbsp;
                     
                     <!--delete-->
-                    <a href="{!! URL::route('posts.delete',['id' => $item->id,
+                    <a href="{!! URL::route('courses.delete',['id' => $item->id,
                                                                 '_token' => csrf_token(),
                                                                  ])
                              !!}"

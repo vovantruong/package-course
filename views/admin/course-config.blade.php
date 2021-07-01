@@ -1,7 +1,7 @@
 @extends('package-acl::admin.layouts.base-2cols')
 
 @section('title')
-    {{ trans($plang_admin.'.pages.title-lang') }}
+    {{ trans($plang_admin.'.pages.title-config') }}
 @stop
 
 @section('content')
@@ -16,15 +16,14 @@
 
                     <!--HEADING-->
                     <div class="panel-heading">
-                        <h3 class="panel-title bariol-thin">
-                            <i class="fa fa-language" aria-hidden="true"></i>
-                            {!! trans($plang_admin.'.pages.title-lang') !!}
+                        <h3 class="panel-title bariol-thin"><i class="fa fa-braille" aria-hidden="true"></i>
+                            {!! trans($plang_admin.'.pages.title-config') !!}
                         </h3>
                     </div>
 
                     <!--DESCRIPTION-->
                     <div class='panel-info panel-description'>
-                        {!! trans($plang_admin.'.descriptions.lang') !!}</h4>
+                        {!! trans($plang_admin.'.descriptions.config') !!}</h4>
                     </div>
                     <!--/DESCRIPTION-->
 
@@ -47,7 +46,7 @@
 
                     <!--BODY-->
                     <div class="panel-body">
-                        {!! Form::open(['route'=>['posts.lang'], 'method' => 'post'])  !!}
+                        {!! Form::open(['route'=>['courses.config'], 'method' => 'course'])  !!}
 
                             <div class='btn-form'>
 
@@ -57,32 +56,8 @@
 
                             </div>
 
-                        <!--TAB MENU-->
-                        @if(isset($langs))
-                        <ul class="nav nav-tabs">
-                            @foreach($langs as $key => $value)
-                            <!--LANG TAB-->
-                            <li class="{!! ($key==$lang)?'active':'' !!}">
-                                <a data-toggle="tab" href="#{{$key}}">
-                                    {!! $value !!}
-                                </a>
-                            </li>
-                            @endforeach
-                        </ul>
-                        @endif
-                        <!--/TAB MENU-->
-
-                        <div class="tab-content">
-
-                        <!--LANG CONTENT-->
-                        @foreach($lang_contents as $key => $content)
-                            <div id="{{$key}}" class="tab-pane fade {!! ($key==$lang)?'in active':'' !!}">
-                                {!! Form::textarea($key, $content, ['class' => 'form-control textarea-margin', 'size' => '30x50']) !!}
-                            </div>
-                        @endforeach
-
-                        </div>
-
+                            {!! Form::label('content', trans($plang_admin.'.labels.config')) !!}
+                            {!! Form::textarea('content', $content, ['class' => 'form-control textarea-margin', 'size' => '30x50']) !!}
 
                             {!! Form::close() !!}
                     </div>
@@ -94,7 +69,7 @@
 
             <!--SEARCH-->
             <div class="col-md-4">
-                @include('package-post::admin.post-lang-backup')
+                @include('package-course::admin.course-config-backup')
             </div>
             <!--/SEARCH-->
 

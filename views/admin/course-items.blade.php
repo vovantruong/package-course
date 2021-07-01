@@ -25,7 +25,7 @@
                     <div class='panel-info panel-description'>
                         {!! trans($plang_admin.'.descriptions.list') !!} <br>
                         @if($is_admin)
-                        <p>You are admin, <a href="{!! Url::route('posts.list',['user_id' => $user_id]) !!}">click here</a> to view your created rules
+                        <p>You are admin, <a href="{!! Url::route('courses.list',['user_id' => $user_id]) !!}">click here</a> to view your created rules
                         @endif
                     </div>
                     <!--/DESCRIPTION-->
@@ -49,9 +49,9 @@
 
                     <!--BODY-->
                     <div class="panel-body">
-                        {!! Form::open(['route'=>['posts.delete', 'id' => @$item->id], 'method' => 'get'])  !!}
+                        {!! Form::open(['route'=>['courses.delete', 'id' => @$item->id], 'method' => 'get'])  !!}
 
-                            @include('package-post::admin.post-item')
+                            @include('package-course::admin.course-item')
 
                             {!! csrf_field(); !!}
 
@@ -65,7 +65,7 @@
 
             <!--SEARCH-->
             <div class="col-md-3">
-                @include('package-post::admin.post-search')
+                @include('package-course::admin.course-search')
             </div>
             <!--/SEARCH-->
 
