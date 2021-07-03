@@ -12,7 +12,7 @@
 
 ## Step 3: Install publish
 
-1. php artisan vendor:publish --provider="Vovantruong\Post\PostServiceProvider" --force
+1. php artisan vendor:publish --provider="Vovantruong\Course\CourseServiceProvider" --force
 
 
 
