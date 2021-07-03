@@ -7,8 +7,8 @@
     ],
     "authors": [
         {
-            "name": "FooStart",
-            "email": "foostart.com@gmail.com",
+            "name": "VoVanTruong",
+            "email": "vvtruong1007@gmail.com",
             "homepage": "http://foostart.com"
         }
     ],
@@ -19,7 +19,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Foostart\\Course\\": "/"
+            "vovantruong\\Course\\": "/"
         }
     },
     "minimum-stability": "dev"
