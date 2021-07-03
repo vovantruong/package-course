@@ -3,8 +3,6 @@
 ## Step 1: Add service providers to **config/app.php**
 
 1. Vovantruong\Course\CourseServiceProvider::class,
-1. Vovantruong\Slideshow\SlideshowServiceProvider::class,
-1. Vovantruong\Filemanager\FilemanagerServiceProvider::class,
 1. Intervention\Image\ImageServiceProvider::class,
 
 ## Step 2: Add class aliases to **config/app.php**
@@ -15,7 +13,6 @@
 ## Step 3: Install publish
 
 1. php artisan vendor:publish --provider="Vovantruong\Post\PostServiceProvider" --force
-1. php artisan vendor:publish --provider="Vovantruong\Slideshow\SlideshowServiceProvider" --force
 
 
 
