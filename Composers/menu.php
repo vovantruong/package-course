@@ -1,8 +1,8 @@
 <?php
 
 use LaravelAcl\Authentication\Classes\Menu\SentryMenuFactory;
-use Foostart\Category\Helpers\FooCategory;
-use Foostart\Category\Helpers\SortTable;
+use Vovantruong\Category\Helpers\FooCategory;
+use Vovantruong\Category\Helpers\SortTable;
 
 /*
 |-----------------------------------------------------------------------

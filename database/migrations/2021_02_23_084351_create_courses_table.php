@@ -2,9 +2,9 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Foostart\Category\Helpers\FoostartMigration;
+use Vovantruong\Category\Helpers\VovantruongMigration;
 
-class CreateCoursesTable extends FoostartMigration
+class CreateCoursesTable extends VovantruongMigration
 {
     public function __construct() {
         $this->table = 'courses';

@@ -1,8 +1,8 @@
-<?php namespace Foostart\Course\Models;
+<?php namespace Vovantruong\Course\Models;
 
-use Foostart\Category\Library\Models\FooModel;
+use Vovantruong\Category\Library\Models\FooModel;
 use Illuminate\Database\Eloquent\Model;
-use Foostart\Comment\Models\Comment;
+use Vovantruong\Comment\Models\Comment;
 
 class Course extends FooModel {
 

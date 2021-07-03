@@ -1,6 +1,6 @@
 <?php
 
-namespace Foostart\Course;
+namespace Vovantruong\Course;
 
 use Illuminate\Support\ServiceProvider;
 use LaravelAcl\Authentication\Classes\Menu\SentryMenuFactory;
@@ -57,7 +57,7 @@ class CourseServiceProvider extends ServiceProvider {
 
     /**
      * Public config to system
-     * @source: vendor/foostart/package-course/config
+     * @source: vendor/Vovantruong/package-course/config
      * @destination: config/
      */
     protected function publishConfig() {
@@ -91,7 +91,7 @@ class CourseServiceProvider extends ServiceProvider {
 
     protected function publishAssets() {
         $this->publishes([
-            __DIR__ . '/public' => public_path('packages/foostart/package-course'),
+            __DIR__ . '/public' => public_path('packages/vovantruong/package-course'),
         ]);
     }
     

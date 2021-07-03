@@ -1,9 +1,9 @@
-<?php namespace Foostart\Course\Validators;
+<?php namespace Vovantruong\Course\Validators;
 
-use Foostart\Category\Library\Validators\FooValidator;
+use Vovantruong\Category\Library\Validators\FooValidator;
 use Event;
 use \LaravelAcl\Library\Validators\AbstractValidator;
-use Foostart\Course\Models\Course;
+use Vovantruong\Course\Models\Course;
 
 use Illuminate\Support\MessageBag as MessageBag;
 

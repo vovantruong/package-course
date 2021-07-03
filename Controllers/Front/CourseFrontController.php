@@ -1,4 +1,4 @@
-<?php namespace Foostart\Course\Controllers\Front;
+<?php namespace Vovantruong\Course\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use URL,
     Route,
     Redirect;
-use Foostart\Sample\Models\Samples;
+use Vovantruong\Sample\Models\Samples;
 
 class CourseFrontController extends Controller
 {

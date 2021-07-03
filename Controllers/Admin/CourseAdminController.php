@@ -1,4 +1,4 @@
-<?php namespace Foostart\Course\Controllers\Admin;
+<?php namespace Vovantruong\Course\Controllers\Admin;
 
 /*
 |-----------------------------------------------------------------------
@@ -15,11 +15,11 @@ use Illuminate\Http\Request;
 use URL, Route, Redirect;
 use Illuminate\Support\Facades\App;
 
-use Foostart\Category\Library\Controllers\FooController;
-use Foostart\Course\Models\Course;
-use Foostart\Category\Models\Category;
-use Foostart\Slideshow\Models\Slideshow;
-use Foostart\Course\Validators\CourseValidator;
+use Vovantruong\Category\Library\Controllers\FooController;
+use Vovantruong\Course\Models\Course;
+use Vovantruong\Category\Models\Category;
+use Vovantruong\Slideshow\Models\Slideshow;
+use Vovantruong\Course\Validators\CourseValidator;
 
 
 class CourseAdminController extends FooController {
@@ -314,7 +314,7 @@ class CourseAdminController extends FooController {
         $is_valid_request = $this->isValidRequest($request);
         // display view
         $config_path = realpath(base_path('config/package-course.php'));
-        $package_path = realpath(base_path('vendor/foostart/package-course'));
+        $package_path = realpath(base_path('vendor/vovantruong/package-course'));
 
         $config_bakup = $package_path.'/storage/backup/config';
         if (!file_exists($config_bakup)) {
@@ -373,7 +373,7 @@ class CourseAdminController extends FooController {
         // display view
         $langs = config('package-course.langs');
         $lang_paths = [];
-        $package_path = realpath(base_path('vendor/foostart/package-course'));
+        $package_path = realpath(base_path('vendor/vovantruong/package-course'));
 
         if (!empty($langs) && is_array($langs)) {
             foreach ($langs as $key => $value) {

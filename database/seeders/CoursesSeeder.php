@@ -1,6 +1,6 @@
 <?php namespace Database\Seeders;
 
-use Foostart\Category\Helpers\FoostartSeeder;
+use Vovantruong\Category\Helpers\VovantruongSeeder;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 

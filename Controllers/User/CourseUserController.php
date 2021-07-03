@@ -1,4 +1,4 @@
-<?php namespace Foostart\Post\Controllers\User;
+<?php namespace Vovantruong\Post\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use URL,
     Route,
     Redirect;
-use Foostart\Sample\Models\Samples;
+use Vovantruong\Sample\Models\Samples;
 
 class PostUserController extends Controller
 {
