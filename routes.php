@@ -7,7 +7,7 @@ use Illuminate\Session\TokenMismatchException;
  */
 Route::get('course', [
     'as' => 'course',
-    'uses' => 'Foostart\Course\Controllers\Front\CourseFrontController@index'
+    'uses' => 'Vovantruong\Course\Controllers\Front\CourseFrontController@index'
 ]);
 
 
@@ -17,7 +17,7 @@ Route::get('course', [
 Route::group(['middleware' => ['web']], function () {
 
     Route::group(['middleware' => ['admin_logged', 'can_see', 'in_context'],
-                  'namespace' => 'Foostart\Course\Controllers\Admin',
+                  'namespace' => 'Vovantruong\Course\Controllers\Admin',
         ], function () {
 
         /*
