@@ -2,7 +2,7 @@
 
 ## Step 1: Add service providers to **config/app.php**
 
-1. Vovantruong\Post\PostServiceProvider::class,
+1. Vovantruong\Course\CourseServiceProvider::class,
 1. Vovantruong\Slideshow\SlideshowServiceProvider::class,
 1. Vovantruong\Filemanager\FilemanagerServiceProvider::class,
 1. Intervention\Image\ImageServiceProvider::class,
